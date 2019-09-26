@@ -1,0 +1,37 @@
+sudo: false
+cache: bundler
+language: ruby
+rvm:
+  - 2.3.8
+  - 2.4.6
+  - 2.5.5
+  - 2.6.3
+  - ruby-head
+  - jruby-9.1.17.0
+  - jruby-9.2.0.0
+gemfile:
+  - gemfiles/Gemfile.rails-5-0-stable
+  - gemfiles/Gemfile.rails-5-1-stable
+  - gemfiles/Gemfile.rails-5-2-stable
+  - Gemfile
+matrix:
+  exclude:
+    - rvm: 2.3.8
+      gemfile: Gemfile
+    - rvm: 2.4.6
+      gemfile: Gemfile
+  allow_failures:
+    - rvm: ruby-head
+    - rvm: jruby-9.1.17.0
+      gemfile: Gemfile
+    - rvm: jruby-9.2.0.0
+      gemfile: Gemfile
+notifications:
+  email: false
+  slack:
+    on_pull_requests: false
+    on_success: change
+    on_failure: always
+    secure: vxwuYTr2Sy+a/C7VP06l3QQCSgsKH7mjbTqOF1cKfGgmIHwO2p1VZmNCKjOe24ILj090WmVfHdnF/MnSCQw/SD1mVNbCZFf8Vj7+fYBu26I7BfahN0jxv3S5NO1sx4ipj0cO17r21OjtD2r1XzOfKqdSkjBBCOk8+WjiqtmCXII=
+
+script: "bin/test"
