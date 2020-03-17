@@ -4,7 +4,7 @@ What is it
 
 Grammable
 
-This single-page to-do application features a fluid user interface that– by using JavaScript– allows users to rapidly add dynamic content.
+Ruby on rails used to create an Instagram clone that was built using industry-standard, test-driven development following numerous red/green/refactor cycles.
 
 Try it yourself!
 
